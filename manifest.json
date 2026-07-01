@@ -2,7 +2,7 @@
   "name": "SaveBite",
   "short_name": "SaveBite",
   "description": "Track how much money you save by cooking at home.",
-  "start_url": "./savings-tracker.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0f1a0f",
   "theme_color": "#7dff6b"
