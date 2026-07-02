@@ -634,7 +634,7 @@ function shiftDay(n) {
     const d = new Date(key + 'T00:00:00');
     const today = todayKey();
     const yest = new Date(); yest.setDate(yest.getDate()-1);
-    const yesterdayKey = yest.toISOString().slice(0,10);
+    const yesterdayKey = `${yest.getFullYear()}-${String(yest.getMonth()+1).padStart(2,'0')}-${String(yest.getDate()).padStart(2,'0')}`;
     if (key === today) return 'Today';
     if (key === yesterdayKey) return 'Yesterday';
     return d.toLocaleDateString('en-IN', { weekday:'short', day:'numeric', month:'short' });
@@ -741,7 +741,7 @@ function shiftDay(n) {
     let total = 0;
     for (let i = 0; i < 7; i++) {
       const d = new Date(); d.setDate(d.getDate() - i);
-      const k = d.toISOString().slice(0,10);
+      const k = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
       total += entriesFor(k).reduce((s,e) => s + e.amount, 0);
     }
     return total;
