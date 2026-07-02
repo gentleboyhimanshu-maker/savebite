@@ -610,12 +610,20 @@
   }
 
   // ── DATE NAV ──
-  function shiftDay(n) {
-    const d = new Date(viewDate + 'T00:00:00');
-    d.setDate(d.getDate() + n);
-    viewDate = d.toISOString().slice(0,10);
-    render();
-  }
+function shiftDay(n) {
+  const [year, month, day] = viewDate.split("-").map(Number);
+
+  const d = new Date(year, month - 1, day);
+  d.setDate(d.getDate() + n);
+
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+
+  viewDate = `${yyyy}-${mm}-${dd}`;
+
+  render();
+}
 
   function goToday() {
     viewDate = todayKey();
