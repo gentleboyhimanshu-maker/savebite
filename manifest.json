@@ -1,9 +1,16 @@
 {
   "name": "SaveBite",
   "short_name": "SaveBite",
-  "description": "Track how much money you save by cooking at home.",
+  "description": "Track how much money you save by cooking at home",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#0f1a0f",
-  "theme_color": "#7dff6b"
+  "theme_color": "#7dff6b",
+  "icons": [
+    {
+      "src": "Icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }

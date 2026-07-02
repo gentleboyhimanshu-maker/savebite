@@ -2,8 +2,9 @@ const CACHE_NAME = "savebite-v1";
 
 const FILES_TO_CACHE = [
   "./",
-  "./savings-tracker.html",
-  "./manifest.json"
+  "./index.html",
+  "./manifest.json",
+  "./Icons/icon-512.png"
 ];
 
 self.addEventListener("install", (event) => {
