@@ -1056,7 +1056,7 @@ function resetGoal() {
 
 function updateGoal(){
 
-    const target = goal.target || 100;
+    const target = goal.target ?? 0;
 
     const allTime = Object.values(data)
         .flat()
