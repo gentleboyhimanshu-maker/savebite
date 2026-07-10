@@ -538,8 +538,21 @@
 <div class="total-card">
   <div class="total-left">
     <div class="label">Total Saved Today</div>
-    <div class="total-amount"><span class="rs">₹</span><span id="totalAmt">0</span></div>
+    <div class="total-amount">
+      <span class="rs">₹</span><span id="totalAmt">0</span>
+    </div>
+
+    <div style="margin-top:15px;font-size:15px;color:#666;">
+      💸 Today's Spending:
+      <strong id="spendAmt">₹0</strong>
+    </div>
+
+    <div style="margin-top:8px;font-size:18px;font-weight:700;">
+      💰 Net Remaining:
+      <span id="netAmt" style="color:#16a34a;">₹0</span>
+    </div>
   </div>
+
   <div class="total-right">
     <div class="date-badge" id="dateBadge">—</div>
     <div class="entry-count" id="entryCount">0 saves logged</div>
@@ -865,12 +878,24 @@ updateGoal();
     const spends = spendData[viewDate] || [];
 const spendTotal = spends.reduce((s, e) => s + e.amount, 0);
 
+const netTotal = dayTotal - spendTotal;
+
     // Date nav
     document.getElementById('dateLabel').textContent = formatDateLabel(viewDate);
     document.getElementById('dateBadge').textContent = formatBadge(viewDate);
 
     // Total card
     document.getElementById('totalAmt').textContent = dayTotal.toLocaleString('en-IN');
+    document.getElementById('spendAmt').textContent =
+    "₹" + spendTotal.toLocaleString('en-IN');
+
+const netElement = document.getElementById('netAmt');
+
+netElement.textContent =
+    "₹" + netTotal.toLocaleString('en-IN');
+
+netElement.style.color =
+    netTotal >= 0 ? "#16a34a" : "#ef4444";
     document.getElementById('entryCount').textContent = `${entries.length} save${entries.length !== 1 ? 's' : ''} logged`;
 
     // Stats
