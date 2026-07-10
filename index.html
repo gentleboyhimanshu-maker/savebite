@@ -1047,7 +1047,7 @@ function resetGoal() {
         target: 0
     };
 
-    localStorage.setItem("goal", JSON.stringify(goal));
+    localStorage.removeItem("savebiteGoal");
 
     updateGoal();
 
