@@ -944,20 +944,30 @@ if (!spends.length) {
     `;
 } else {
     spendList.innerHTML = spends.map(s => `
-        <div class="entry-item">
-            <div class="entry-emoji">💸</div>
-            <div class="entry-body">
-                <div class="entry-what">${esc(s.item)}</div>
-                <div class="entry-instead">${s.cat}</div>
-            </div>
-            <div class="entry-right">
-                <div class="entry-amount" style="color:#ef4444;">
-                    -₹${s.amount.toLocaleString('en-IN')}
-                </div>
-                <div class="entry-time">${s.time}</div>
-            </div>
+    <div class="entry-item">
+        <div class="entry-emoji">💸</div>
+
+        <div class="entry-body">
+            <div class="entry-what">${esc(s.item)}</div>
+            <div class="entry-instead">${s.cat}</div>
         </div>
-    `).join('');
+
+        <div class="entry-right">
+            <div class="entry-amount" style="color:#ef4444;">
+                -₹${s.amount.toLocaleString('en-IN')}
+            </div>
+            <div class="entry-time">${s.time}</div>
+        </div>
+
+        <button
+            class="delete-btn"
+            onclick="deleteSpend(${s.id})"
+            title="Remove">
+            ✕
+        </button>
+
+    </div>
+`).join('');
 }
 }
   function getWeekTotal() {
