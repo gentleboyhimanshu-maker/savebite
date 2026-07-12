@@ -854,13 +854,20 @@ updateGoal();
     showToast(`-₹${amount} spent! 💸`);
 }
 
-  function deleteEntry(id) {
-    if (!data[viewDate]) return;
-    data[viewDate] = data[viewDate].filter(e => e.id !== id);
-    if (!data[viewDate].length) delete data[viewDate];
-    save();
+  function deleteSpend(id) {
+
+    if (!spendData[viewDate]) return;
+
+    spendData[viewDate] = spendData[viewDate].filter(s => s.id !== id);
+
+    if (!spendData[viewDate].length) {
+        delete spendData[viewDate];
+    }
+
+    localStorage.setItem(SPEND_KEY, JSON.stringify(spendData));
+
     render();
-  }
+}
 
   function clearDay() {
     if (!entriesFor(viewDate).length) return;
