@@ -549,7 +549,16 @@
 
     <div style="margin-top:8px;font-size:18px;font-weight:700;">
       💰 Net Remaining:
-      <span id="netAmt" style="color:#16a34a;">₹0</span>
+      <span id="netAmt"
+      style="
+        background:#ffffff;
+        color:#14532d;
+        padding:4px 10px;
+        border-radius:8px;
+        font-weight:700;
+        display:inline-block;">
+    ₹0
+</span>
     </div>
   </div>
 
@@ -922,7 +931,7 @@ netElement.textContent =
     "₹" + netTotal.toLocaleString('en-IN');
 
 netElement.style.color =
-    netTotal >= 0 ? "#16a34a" : "#ef4444";
+    netTotal >= 0 ? "#14532d" : "#b91c1c";
     document.getElementById('entryCount').textContent = `${entries.length} save${entries.length !== 1 ? 's' : ''} logged`;
 
     // Stats
