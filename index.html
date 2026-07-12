@@ -854,6 +854,26 @@ updateGoal();
     showToast(`-₹${amount} spent! 💸`);
 }
 
+function deleteEntry(id) {
+
+    console.log("Delete clicked:", id);
+    console.log("Before:", data[viewDate]);
+
+    if (!data[viewDate]) return;
+
+    data[viewDate] = data[viewDate].filter(e => e.id !== id);
+
+    console.log("After:", data[viewDate]);
+
+    if (!data[viewDate].length) {
+        delete data[viewDate];
+    }
+
+    save();
+    render();
+    updateGoal();
+}
+
   function deleteSpend(id) {
 
     if (!spendData[viewDate]) return;
